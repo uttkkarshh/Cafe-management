@@ -24,9 +24,10 @@ function PrList() {
         fetch('http://localhost:4000/user/products', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
+                "Content-Type": "application/json",
+                
+                "Access-Control-Allow-Origin": "*",
+            }, credentials: "include",
             body: JSON.stringify(fil)
         })
             .then(res => {

@@ -6,22 +6,34 @@ function Bull({ data, func ,func2}) {
     const [input2, setinput2] = useState('');
     const [number, setnumber] = useState();
     function func1() {
-        alert(`ORDER PLACED AT TABLE${number} FOR ${input1}`)
+        fetch("http://localhost:4000/user/order", {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+               
+                "Access-Control-Allow-Origin": "*",
+            }, credentials: "include",
+            body: JSON.stringify({
+                data
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data.user.fname);
+                alert(`order placed for ${data.user.fname}`);
+
+                
+            });
+        
         func2([]);
     }
     return (<div className="Car">
 
         {data && data.map((pro) => (<CItem product={pro} func={func} />)) }
     
-        {data && data.length &&<div calssName="Form">
-            <label for="fname">First Name</label>
-
-            <input type="text" value={input1} onChange={e => setinput1(e.target.value)} />
-            <label for="lname">Last Name</label>
-
-            <input type="text" value={input2} onChange={e => setinput2(e.target.value)} />
-            <label for="Table">TABLE NO</label>
-            <input type="text" value={number} onChange={e => setnumber(e.target.value)} />
+        {data && data.length!=0 &&<div className="Form">
+            <br /><br /><br />
            
             <button className="BackB" type='button' onClick={func1 } >Order</button>
         </div>}

@@ -1,5 +1,7 @@
 import Home from './Home'
 import About from './About.js'
+import Signup from './Signup.js'
+import Login from './Login.js'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PrList from './PrList'
 function App() {
@@ -10,6 +12,8 @@ function App() {
               <Route index element={<Home />} />
               <Route path='/PrList' element={<PrList />} />
               <Route path='/About' element={<About />} />
+              <Route path="/signin" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
           </Routes>
         
       </BrowserRouter>

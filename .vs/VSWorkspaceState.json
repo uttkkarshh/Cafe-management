@@ -3,8 +3,9 @@
     "",
     "\\public",
     "\\src",
-    "\\src\\Components"
+    "\\src\\Components",
+    "\\src\\Images"
   ],
-  "SelectedNode": "\\src\\Components\\CartItem.js",
+  "SelectedNode": "\\src\\Components\\Bull.js",
   "PreviewInSolutionExplorer": false
 }
