@@ -20,9 +20,13 @@ function Bull({ data, func ,func2}) {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.user.fname);
-                alert(`order placed for ${data.user.fname}`);
-
+                if (data.url) {
+                   window.location=data.url;
+                }
+                else if(data.mss) {
+                    console.log(data.mss);
+                    alert(`${data.mss}`);
+                }
                 
             });
         
